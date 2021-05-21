@@ -1,0 +1,19 @@
+This guide is for cronjobs on MacOS from https://betterprogramming.pub/https-medium-com-ratik96-scheduling-jobs-with-crontab-on-macos-add5a8b26c30
+
+
+1) In Finder go to: Go menu -> Go to Folder -> "/usr/sbin/cron".
+2)Drag and drop cron and smdb icons to : System Preferences -> Security and Privacy -> Privacy -> Full Disk Access (maybe you will need to unlock in the bottom left lock icon).
+
+Replace SCRIPT_LOCATION on this guide and work.sh by your local folder path
+
+Create a cronjob
+Run crontab -e
+Add this command:
+*/1 * * * * cd SCRIPT_LOCATION && ./work.sh
+
+For testing, you can add stdout for echo commands
+
+*/1 * * * * cd SCRIPT_LOCATION && ./work.sh >/tmp/stdout.log 2>/tmp/stderr.log
+
+List active cronjobs:
+Run crontab -l
